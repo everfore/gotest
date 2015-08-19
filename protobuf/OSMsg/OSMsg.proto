@@ -1,0 +1,41 @@
+message OSMsg{
+required MsgType pattern = 1 [default=Individual];
+enum MsgType{
+	Logup = 0;
+	Login = 1;
+	Logout = 2;
+	Individual = 3;
+	Group = 4;
+}
+optional LogupMsg logup = 2;
+optional LoginMsg login = 3;
+optional LogoutMsg logout = 4;
+optional IndMsg ind = 5;
+optional GroupMsg group = 6;
+
+message IndMsg{
+required int32 from = 1;
+required int32 to = 2;
+required string msg = 3;
+}
+message LogupMsg{
+required int32 from = 1;
+required int32 to = 2;
+required string msg = 3;
+}
+message LoginMsg{
+required int32 from = 1;
+required int32 to = 2;
+required string msg = 3;
+}
+message LogoutMsg{
+required int32 from = 1;
+required int32 to = 2;
+required string msg = 3;
+}
+message GroupMsg{
+required int32 from = 1;
+required int32 to = 2;
+required string msg = 3;
+}
+}
