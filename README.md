@@ -8,7 +8,7 @@
 
  	&struct{}
 
-![New_bench](https://raw.githubusercontent.com/everfore/gotest/master/nil/test.png "New Benchmark")
+![New_bench](https://raw.githubusercontent.com/everfore/gotest/master/nil/nil.png "New Benchmark")
 
 
 ##	mail
