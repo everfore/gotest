@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	// "io/ioutil"
 	"net/http"
 	"net/url"
 )
@@ -24,15 +24,16 @@ func echo(rw http.ResponseWriter, req *http.Request) {
 	if len(site) <= 1 {
 		return
 	}
-	resp, err := http.Get(site)
-	if checkerr(err) {
-		return
-	}
-	bs, err := ioutil.ReadAll(resp.Body)
-	if checkerr(err) {
-		return
-	}
-	rw.Write(bs)
+	// resp, err := http.Get(site)
+	// if checkerr(err) {
+	// 	return
+	// }
+	// bs, err := ioutil.ReadAll(resp.Body)
+	// if checkerr(err) {
+	// 	return
+	// }
+	// rw.Write(bs)
+	http.Redirect(rw, req, site, 302)
 }
 
 func checkerr(err error) bool {
