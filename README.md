@@ -14,3 +14,6 @@
 	
 ##	protobuf
 
+## b2s
+
+	bytes <===> string
