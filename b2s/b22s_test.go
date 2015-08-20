@@ -47,32 +47,32 @@ func TestDeep2(t *testing.T) {
 	t.Log(str2)
 }
 
-func BenchmarkB(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		_ = ToBytes(v)
-	}
-}
-func BenchmarkS(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		_ = ToString(data)
-	}
-}
-func BenchmarkB2(b *testing.B) {
+func BenchmarkI2Bytes_net(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = I2Bytes(v)
 	}
 }
-func BenchmarkS2(b *testing.B) {
+func BenchmarkToBytes_qiniu(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_ = I2String(data)
+		_ = ToBytes(v)
 	}
 }
-func BenchmarkB3(b *testing.B) {
+func BenchmarkToBytes_common(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = []byte(v)
 	}
 }
-func BenchmarkS3(b *testing.B) {
+func BenchmarkI2String_net(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = I2String(data)
+	}
+}
+func BenchmarkToString_qiniu(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = ToString(data)
+	}
+}
+func BenchmarkToString_common(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = string(data)
 	}
