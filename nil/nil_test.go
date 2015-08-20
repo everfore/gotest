@@ -7,41 +7,40 @@ import (
 type PersonNil struct {
 }
 
-func BenchmarkPersionNew(b *testing.B) {
+func BenchmarkPersion_nil(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = (*PersonNil)(nil)
+	}
+}
+func BenchmarkPersion_new(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = new(PersonNil)
 	}
 }
-func BenchmarkPersionCommon(b *testing.B) {
+func BenchmarkPersion_common(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = &PersonNil{}
 	}
 }
 
-func BenchmarkPersionNil(b *testing.B) {
+type PersonNil2 struct {
+	name   string
+	friend [1000]string
+}
+
+func BenchmarkPersion_nil_more(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_ = (*PersonNil)(nil)
+		_ = (*PersonNil2)(nil)
 	}
 }
 
-type PersonNil2 struct {
-	name   string
-	friend [101]string
-}
-
-func BenchmarkPersionNew2(b *testing.B) {
+func BenchmarkPersion_new_more(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = new(PersonNil2)
 	}
 }
-func BenchmarkPersionCommon2(b *testing.B) {
+func BenchmarkPersion_common_more(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		_ = &PersonNil2{}
-	}
-}
-
-func BenchmarkPersionNil2(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		_ = (*PersonNil2)(nil)
 	}
 }
