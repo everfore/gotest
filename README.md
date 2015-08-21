@@ -26,9 +26,12 @@
 ## channel
 
 	chan bool
+
 	chan struct{}
 
-![BS_bench](https://raw.githubusercontent.com/everfore/gotest/master/b2s/test.png "BS Benchmark")
+	chan [1<<15]byte     channel element must be less than 64kb.
+
+![chan_bench](https://raw.githubusercontent.com/everfore/gotest/master/channel/chan.png "chan Benchmark")
 
 ##	download
 

@@ -7,15 +7,14 @@ import (
 var (
 	chb   chan bool
 	chst  chan struct{}
-	chbig chan [1 << 17]byte
-	bigbs [1 << 17]byte
+	chbig chan [1 << 15]byte
+	bigbs [1 << 15]byte
 )
 
 func init() {
 	chb = make(chan bool, 100)
 	chst = make(chan struct{}, 100)
-	chbig = make(chan [1 << 17]byte, 100)
-	// bigbs = make([]byte, 1<<20)
+	chbig = make(chan [1 << 15]byte, 100)
 }
 
 func BenchmarkChb2(b *testing.B) {
@@ -61,5 +60,18 @@ func BenchmarkChst(b *testing.B) {
 	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		chst <- struct{}{}
+	}
+}
+
+func BenchmarkChbig(b *testing.B) {
+	b.StopTimer()
+	go func() {
+		for i := 0; i < b.N; i++ {
+			_ = <-chbig
+		}
+	}()
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		chbig <- bigbs
 	}
 }
