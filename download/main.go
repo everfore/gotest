@@ -54,7 +54,7 @@ func get(url_ string, file *os.File) chan bool {
 		rd := bufio.NewReader(resp.Body)
 		for {
 			n, err := rd.Read(buf)
-			fmt.Print(n, "-")
+			// fmt.Print(n, "-")
 			m, werr := file.Write(buf[:n])
 			if checkerr(werr) {
 				break
