@@ -37,7 +37,7 @@
 
 ##	gbk
 
-	[golang.org/x/text/encoding/simplifiedchinese](http://gopm.io/download) 
+[golang.org/x/text/encoding/simplifiedchinese](http://gopm.io/download) 
 
 ##	websocket
 
