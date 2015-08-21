@@ -1,6 +1,6 @@
-#	Golang test Benchmark&Test
+#	Golang Try & Benchmark & Test
 
-##	nil [bench]
+##	nil
  	
  	(*struct)(nil)
 
@@ -10,10 +10,6 @@
 
 ![New_bench](https://raw.githubusercontent.com/everfore/gotest/master/nil/nil.png "New Benchmark")
 
-
-##	mail
-
-	send mail
 	
 ##	protobuf
 
@@ -24,6 +20,13 @@
 ## b2s
 
 	bytes <===> string
+
+![BS_bench](https://raw.githubusercontent.com/everfore/gotest/master/b2s/test.png "BS Benchmark")
+
+## channel
+
+	chan bool
+	chan struct{}
 
 ![BS_bench](https://raw.githubusercontent.com/everfore/gotest/master/b2s/test.png "BS Benchmark")
 
@@ -42,3 +45,7 @@
 ##	websocket
 
 	websocket c-s
+
+##	mail
+
+	send mail
