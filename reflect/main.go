@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"unsafe"
 )
 
 type User struct {
@@ -38,8 +39,14 @@ type Profile struct {
 }
 
 func main() {
+
 	user := NewUser()
-	rf_ptr(&user)
+	// rf_ptr(&user)
+	_n := reflect.New(reflect.TypeOf(user))
+	fmt.Println(_n)
+	typ := reflect.TypeOf(user)
+	fmt.Println(typ)
+	fmt.Println((*User)(unsafe.Pointer(_n.Pointer())))
 }
 
 func rf_ptr(user interface{}) {
