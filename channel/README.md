@@ -1,5 +1,24 @@
 # Go chan 的使用方法总结
 
+## send or recv
+
+		var c1 chan<- bool
+		var c2 <-chan bool
+		var c3 chan bool
+		// c1 = make(chan<- bool, 2)
+		// c2 = make(<-chan bool, 2) // it make no sense
+		c3 = (make(chan bool, 2))
+		c1 = (chan<- bool)(c3)
+		c2 = (<-chan bool)(c3)
+		c1 <- true
+		c3 <- true
+		fmt.Println(<-c2)
+		fmt.Println(<-c2)
+
+		<!-- error -->
+		c4 := (chan bool)((chan<- bool)(c3))
+		// convert error
+
 ## 无缓冲？
 
 无缓冲channel,需要异步(使用goruntine)接/收消息,否则会死锁。
