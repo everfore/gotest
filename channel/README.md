@@ -168,8 +168,20 @@ for,select,chan组合
 		for{
 			select{
 				case <-c1:
-					...
+					// ...
 				case <-c2:
-					...
+					// ...
 			}
 		}
+
+## closed chan
+
+被关闭的chan是非阻塞的,以上已经验证:从closed chan读取数据,得到的值为默认的零值,第二个参数为false.
+
+## nil chan是阻塞的: send msg use nil chan will panic.
+
+## select的作用
+
+选择一个可send/recv的chan,试图send/recv.
+for,select,chan中,若chan被关闭后,可将chan赋值为nil,防止其非阻塞模式的陷入.[参考](http://tonybai.com/2014/09/29/a-channel-compendium-for-golang/)
+
