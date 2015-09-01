@@ -11,7 +11,6 @@ import (
 type User1 struct {
 	Name string
 	Age  byte
-	Buf  [1000]byte
 }
 
 type User2 struct {
@@ -20,8 +19,8 @@ type User2 struct {
 	Buf  [1000]byte
 }
 
-var user1 = User2{Name: "jack", Age: 20}
-var user2 = User1{Name: "jack", Age: 20, Buf: [1000]byte{}}
+var user1 = User1{Name: "jack", Age: 20}
+var user2 = User2{Name: "jack", Age: 20, Buf: [1000]byte{}}
 var std_user1, _ = json.Marshal(user1)
 var ffj_user1, _ = ffjson.Marshal(user2)
 
