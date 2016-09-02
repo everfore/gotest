@@ -25,7 +25,7 @@ func main() {
 	if checkerr(err) {
 		return
 	}
-	ch := get("https://codeload.github.com/shaalx/sstruct/zip/master", file)
+	ch := get("https://codeload.github.com/toukii/sstruct/zip/master", file)
 	// ch := get("https://codeload.github.com/everfore/push/zip/master", file)
 	fmt.Println(<-ch)
 }

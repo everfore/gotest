@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/qiniu/log"
-	"github.com/shaalx/goutils"
+	"github.com/toukii/goutils"
 	"io/ioutil"
 	"net/http"
 	"os"

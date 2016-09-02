@@ -38,7 +38,7 @@ func SendMail(content interface{}) {
 	user := "kingaso@163.com"
 	password := "kingaso2014"
 	host := "smtp.163.com:25"
-	to := "shaalx@163.com"
+	to := "toukii@163.com"
 
 	subject := "--Notice--"
 	data := GetBytes(content)
